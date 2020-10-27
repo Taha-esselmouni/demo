@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -20,13 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register'=>true]);
 
-// Route::get('/category/create',[CategoryController::class,'create']);
-Route::resource('category',CategoryController::class);
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('product', ProductController::class);
-// Route::get('product/create', [App\Http\Controllers\ProductController::class, 'Create'])->name('');
- //Route::Post('product/store', [App\Http\Controllers\ProductController::class, 'store'])->name('product.store');
+Route::resource('category',CategoryController::class)->middleware('auth');
+
+
+Route::resource('product', ProductController::class)->middleware('auth');
+// Route::resource('home',HomeController::class);
+  Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
+
+
 

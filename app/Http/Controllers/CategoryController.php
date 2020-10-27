@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
@@ -19,6 +20,7 @@ class CategoryController extends Controller
         $categories = Category::latest()->get();
         // dd($categories);
          return view('category.index',compact('categories'));
+
     }
 
     /**

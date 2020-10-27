@@ -20,6 +20,8 @@ class ProductController extends Controller
         $product = Product::latest()->get();
         // dd($product);
          return view('products.index', compact('product'));
+
+
     }
 
     /**
@@ -44,7 +46,7 @@ class ProductController extends Controller
 
 
 
-        // dd('ok');
+
 
         $this->validate($request, [
             'name' => 'required',
@@ -81,9 +83,16 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+    //
+    $produit = Product::find($id);
+    return view('product.show',compact("produit"));
     }
 
+       public function prod()
+       {
+           $prod = (new Product)->showData();
+           dd($prod);
+       }
     /**
      * Show the form for editing the specified resource.
      *
