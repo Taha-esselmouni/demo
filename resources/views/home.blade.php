@@ -1,26 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- <div class="container">
-    <div class="row test">
-
-     <div class="col-sm-6">
-        <div class="card style="width: 18rem;">
-            <div class="card-body">
-                <img class="card-img-top img-fluid" width="100%" height="50%" src="{{asset('images/'.$cat->image)}}" alt="{{$cat->image}}">
-                <h5 class="card-title">{{$cat->name}}</h5>
-                <h6 class="card-title">{{$cat->price}}</h6>
-                <p class="card-text">{{$cat->description}}</p>
-                <a href="{{route('show',[$cat->id])}}" class="btn btn-primary">Go </a>
-            </div>
-        </div>
-     </div>
-        @endforeach
-    </div>
-  </div> --}}
 
 
-        <div class="container" style="display: flex">
+
+        <div class="container" style="display:inline-flex">
+            @if (count($product) > 0)
               @foreach ($product as $key => $cat)
               <div class="row test">
                     <div class="card" style="width: 20rem;">
@@ -29,11 +14,16 @@
                             <h2 class="card-title">{{$cat->name}}</h2>
                             <h3 class="card-subtitle">{{$cat->price}}</h3>
                             <p class="card-text">{{$cat->description}}</p>
-                            {{-- <a href="{{route('show',[$cat->id])}}" class="btn btn-primary">Go</a> --}}
+                            <a href="" class="btn btn-primary">Go</a>
                         </div>
                     </div>
               </div>
                 @endforeach
+                @else
+                            <p class="text-muted">
+                                No category to display
+                            </p>
+                            @endif
         </div>
 
 

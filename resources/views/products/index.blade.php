@@ -9,7 +9,7 @@
             <div class="alert alert-success">{{Session::get('info')}}</div>
 
             @endif
-            <div class="card">
+            <div class="card" style="margin-right: -100px">
                 <div class="card-header">Product</div>
 
                 <div class="card-body">
@@ -82,7 +82,7 @@
 
                             @else
                             <p class="text-muted">
-                                No category to display
+                                No product to display
                             </p>
                             @endif
 

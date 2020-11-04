@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes(['register'=>true]);
@@ -30,6 +30,6 @@ Route::resource('category',CategoryController::class)->middleware('auth');
 Route::resource('product', ProductController::class)->middleware('auth');
 // Route::resource('home',HomeController::class);
   Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
-
+  Route::get('product/{product}', 'ProductsController@show')->name('produit');
 
 
